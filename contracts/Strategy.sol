@@ -22,6 +22,7 @@ contract Strategy is IStrategy, Ownable {
     IERC20 public immutable token;
 
     // internal constants
+    address private constant usdc = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
     IERC20 private immutable farmToken;
     IERC20 private immutable ptoken;
     IERC20 private immutable fytoken;
@@ -86,14 +87,15 @@ contract Strategy is IStrategy, Ownable {
     }
 
     function execute() public override {
-        // Step 0 - swap farmed APW tokens for the wanted token
+        // Step 0 - swap farmed APW tokens for USDC
         uint256 farmTokenBalance = farmToken.balanceOf(address(this));
-        if (farmTokenBalance > 0) _swap(farmTokenBalance, address(farmToken), address(token));
+        if (farmTokenBalance > 0) _swap(farmTokenBalance, address(farmToken), usdc);
 
-        // Step 1 - take leverage on Gearbox
+        // Step 1 - take leverage on Gearbox for USDC and swap it to the wanted token
         uint256 tokenBalance = token.balanceOf(address(this));
         uint256 amount = leverage * tokenBalance;
-        // TBD
+        // TBD Gearbox
+        _swap(amount, usdc, address(token));
 
         // Step 2 - deposit wanted token on Aave
         aave.deposit(address(token), amount, address(this), 0);
