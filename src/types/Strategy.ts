@@ -23,7 +23,6 @@ export interface StrategyInterface extends utils.Interface {
     "checker()": FunctionFragment;
     "execute()": FunctionFragment;
     "invest(address,uint256)": FunctionFragment;
-    "liquidate()": FunctionFragment;
     "owner()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "setLeverage(uint8)": FunctionFragment;
@@ -37,7 +36,6 @@ export interface StrategyInterface extends utils.Interface {
     functionFragment: "invest",
     values: [string, BigNumberish]
   ): string;
-  encodeFunctionData(functionFragment: "liquidate", values?: undefined): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "renounceOwnership",
@@ -56,7 +54,6 @@ export interface StrategyInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "checker", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "execute", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "invest", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "liquidate", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "renounceOwnership",
@@ -129,10 +126,6 @@ export interface Strategy extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    liquidate(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
     owner(overrides?: CallOverrides): Promise<[string]>;
 
     renounceOwnership(
@@ -166,10 +159,6 @@ export interface Strategy extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  liquidate(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
   owner(overrides?: CallOverrides): Promise<string>;
 
   renounceOwnership(
@@ -200,8 +189,6 @@ export interface Strategy extends BaseContract {
       amount: BigNumberish,
       overrides?: CallOverrides
     ): Promise<void>;
-
-    liquidate(overrides?: CallOverrides): Promise<void>;
 
     owner(overrides?: CallOverrides): Promise<string>;
 
@@ -244,10 +231,6 @@ export interface Strategy extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
-    liquidate(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
     renounceOwnership(
@@ -277,10 +260,6 @@ export interface Strategy extends BaseContract {
     invest(
       inputToken: string,
       amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    liquidate(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 

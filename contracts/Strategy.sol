@@ -93,6 +93,7 @@ contract Strategy is IStrategy, Ownable {
         // Step 1 - take leverage on Gearbox
         uint256 tokenBalance = token.balanceOf(address(this));
         uint256 amount = leverage * tokenBalance;
+        // TBD
 
         // Step 2 - deposit wanted token on Aave
         aave.deposit(address(token), amount, address(this), 0);
@@ -115,10 +116,6 @@ contract Strategy is IStrategy, Ownable {
 
         // Step 6 - add FYTokens as collateral to the internal Apwine AMM
         //amm.addLiquidity();
-    }
-
-    function liquidate() external {
-        //amm.removeLiquidity();
     }
 
     function checker() external view override returns (bool canExec, bytes memory execPayload) {

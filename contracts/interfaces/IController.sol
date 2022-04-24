@@ -15,5 +15,5 @@ interface IController {
      * @param _futureVault the address of the futureVault to withdraw the IBT from
      * @param _amount the amount to withdraw
      */
-    function withdraw(address _futureVault, uint256 _amount) external;
+    // function withdraw(address _futureVault, uint256 _amount) external;
 }
