@@ -25,10 +25,10 @@ contract Strategy is IStrategy, Ownable {
     IERC20 private immutable farmToken;
     IERC20 private immutable ptoken;
     IERC20 private immutable fytoken;
-    IAave private immutable aave;
+    IAave private immutable aave; // use AaveLendingPoolAdapter
     IUniswapV2Router02 private immutable uniRouter;
-    IController private immutable controller;
-    IAMM private immutable amm;
+    IController private immutable controller; // use ApwineControllerAdapter
+    IAMM private immutable amm; // use ApwineAmmAdapter
     address private immutable futureVault;
     uint256 private immutable pairID;
     uint8 private leverage;
