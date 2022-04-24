@@ -1067,6 +1067,7 @@ __metadata:
     "@nomiclabs/hardhat-etherscan": ^3.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.2
     "@openzeppelin/contracts": ^4.5.0
+    "@rari-capital/solmate": ^6.2.0
     "@tenderly/hardhat-tenderly": ^1.0.13
     "@typechain/ethers-v5": ^9.0.0
     "@typechain/hardhat": ^4.0.0
@@ -1112,6 +1113,13 @@ __metadata:
     typescript: ^4.5.5
   languageName: unknown
   linkType: soft
+
+"@rari-capital/solmate@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "@rari-capital/solmate@npm:6.2.0"
+  checksum: a120cbb7d2828e35b5fd7d620871fd7f746c68a94f79be79fc153c665e6117e82ca3f22167e2143a84d7c5876784f9ad173efc51ace075e1332726d552c5e23e
+  languageName: node
+  linkType: hard
 
 "@resolver-engine/core@npm:^0.3.3":
   version: 0.3.3

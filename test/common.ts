@@ -1,0 +1,9 @@
+export const usdt = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48";
+export const apwToken = "0x4104b135DBC9609Fc1A9490E61369036497660c8";
+export const aave = "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9";
+export const uniRouterV2 = "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D";
+export const apwineController = "0x4ba30fa240047c17fc557b8628799068d4396790";
+export const apwineFuture = "0xb524c16330a76182ef617f08f5e6996f577ac64a";
+export const apwineAmm = "0xb932c4801240753604c768c991eb640bcd7c06eb";
+export const gearbox = "";
+export const leverage = 4;

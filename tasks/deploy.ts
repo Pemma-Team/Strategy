@@ -1,12 +1,12 @@
 import { task } from "hardhat/config";
 import { TaskArguments } from "hardhat/types";
 
-import { Greeter } from "../src/types/Greeter";
-import { Greeter__factory } from "../src/types/factories/Greeter__factory";
+import { Strategy } from "../src/types/Strategy";
+import { Strategy__factory } from "../src/types/factories/Strategy__factory";
 
 task("deploy").setAction(async function (taskArguments: TaskArguments, { ethers }) {
-  const greeterFactory: Greeter__factory = <Greeter__factory>await ethers.getContractFactory("Greeter");
-  const greeter: Greeter = <Greeter>await greeterFactory.deploy();
-  await greeter.deployed();
-  console.log("Greeter deployed to: ", greeter.address);
+  const strategyFactory: Strategy__factory = <Strategy__factory>await ethers.getContractFactory("Strategy");
+  const strategy: Strategy = <Strategy>await strategyFactory.deploy();
+  await strategy.deployed();
+  console.log("Strategy deployed to: ", strategy.address);
 });
