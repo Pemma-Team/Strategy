@@ -55,7 +55,6 @@ contract ApwineControllerAdapter is IController {
         address creditAccount = creditManager.getCreditAccountOrRevert(msg.sender);
 
         creditManager.provideCreditAccountAllowance(creditAccount, controller, token0);
-
         creditManager.provideCreditAccountAllowance(creditAccount, controller, token1);
 
         bytes memory data = abi.encodeWithSelector(IController.deposit.selector, _futureVault, _amount);
